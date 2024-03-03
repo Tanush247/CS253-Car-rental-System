@@ -22,34 +22,34 @@ Welcome to the Car Rental System. The program is written in C++ and links 4 data
    3. Stores the password of the manager
   
 **Functionalities of Customer/Employee** (similar functions of customer and employee)
-1. *Login/Register*-> requires name, ID, and password. For registering database is updated and we move to the login menu. While login if any of the parameters are wrong the output thrown is "Invalid Credentials". Different employees cannot have same ID. The code is able to handle same ID both for customer and employee 
+1. *Login/Register*-> requires name, ID, and password. For registering database is updated and we move to the login menu. While login if any of the parameters are wrong the output thrown is "Invalid Credentials". Different employees cannot have the same ID. The code can handle the same ID both for customers and employees. 
 2. Upon successful login we move to the login menu:
-   1. *Seeing All Available Cars*: One can see all the available cars that can be rented by the user. A car with a higher minimum customer record or already rented is not shown. Price for employees is cut down by 15%. The price is also affected by the current condition of the car. I have taken the price and condition to be linearly related. That is for condition level to be 70 the price would be 0.7*original price.
+   1. *Seeing All Available Cars*: One can see all the available cars that can be rented by the user. A car with a higher minimum customer record or already rented is not shown. The price for employees is cut down by 15%. The price is also affected by the current condition of the car. I have taken the price and condition to be linearly related. That is for the condition level to be 70 the price would be 0.7*original price.
    2. *Seeing Your Rented Cars*: Displays the list of all user's rented cars.
-   3. *Renting A Car*: Prompts the user to enter the model of the car and today's date. Based on today's date the database stores a date 7 day ahead of the input date. The date is stored in form of a string in
-      DDMMYYYY format. Using the <regex> library the code is able to output invalid date if the user enters any other format of date. Based on the availibility of the car and the customer record the car is either rented or not rented. Upon renting the car the car database is automically updated.
-   4. *Check Current Dues*: The feature requires user to enter the current date and correspondingly outputs a fine in the cases when the customer date is later than the due date. Fine per extra day is taken to $5 and a 15% discount is given for the employees.
+   3. *Renting A Car*: Prompts the user to enter the model of the car and today's date. Based on today's date the database stores a date 7 days ahead of the input date. The data is stored in the form of a string in
+      DDMMYYYY format. Using the <regex> library the code can output an invalid date if the user enters any other format of date. Based on the availability of the car and the customer record the car is either rented or not rented. Upon renting the car the car database is automatically updated.
+   4. *Check Current Dues*: The feature requires the user to enter the current date and correspondingly outputs a fine in the cases when the customer date is later than the due date. The fine per extra day is taken to $5 and a 15% discount is given for the employees.
    5. *Clear dues*: The feature is used to clear all dues for the customer. The final output of the function shows the due that has been paid by the customer to complete the transaction. The Car that had been earlier rented by the customer/employee is freed and based on the condition and fine the customer record is updated.
    6. *Checking Customer/Employee Record*: The feature outputs the current employee/customer record.
-   7. *Logout*: To Logout the user and to return back to the main home screen.
+   7. *Logout*: To log out to the user and return to the main home screen.
 
 
 **Functionalities of Manager**
-1. *Login/Register*: This feature is similar to login/register the manager in the car rental system based on name, ID and password. Manager of same name and password are possible. However ID's should be differnet.
-2. Upon succesful login the following functions can be performed by the manager:
-   1. *For seeing the current status of all the cars*: This outputs the current status of all cars-> Model, Price,Condition, If not rented outputs Car Not Rented else outputs the details of the user and the due date of the car.
-   2. *For adding customers/employee/car*. Pushes the corresponding entity in it's database.
-   3. *For removing customer/employee/car*: On removing customer/employee the code also checks if the deleted user had rented a car. In that case the car is freed and it's condition remains the same.
+1. *Login/Register*: To log in/register the manager in the car rental system based on name, ID, and password. Managers of the same name and password are possible. However, IDs should be different.
+2. Upon successful login the following functions can be performed by the manager:
+   1. *For seeing the current status of all the cars*: This outputs the current status of all cars-> Model, Price, Condition, If not rented outputs Car Not Rented else outputs the details of the user and the due date of the car.
+   2. *For adding customers/employees/cars*. Pushes the corresponding entity in its database.
+   3. *For removing customer/employee/car*: On removing customer/employee the code also checks if the deleted user had rented a car. In that case, the car is freed and its condition remains the same.
    4. *For updating customer/employee/car*.
-      1. *Updating customer/employee*: asks for ID and updates the name, password and customer/employee record. On updating the name the corresponding changes are also reflected in the car database in case the user owned the car.
-      2. *Updating car*: Takes in the car model and updates the minimum customer record, rent, condition of the car if the car model exists.
-   5. *Logout*: To logout the manager and return back to the main home screen.
+      1. *Updating customer/employee*: asks for ID and updates the name, password, and customer/employee record. On updating the name the corresponding changes are also reflected in the car database in case the user owned the car.
+      2. *Updating car*: Takes in the car model and updates the minimum customer record, rent, and condition of the car if the car model exists.
+   5. *Logout*: To log out of the manager and return to the main home screen.
 
 
 
 Classes:
 1. **User class**:
-   1. *attributes*: string name, string ID and string password
+   1. *attributes*: string name, string ID, and string password
 2. **Customer And Employee Class**: Both children class of User class
    1. *functions*: clear_dues, check_current_dues, rent_a_car, check_mine_rented, check_available.
 4. **Manager class**: Children class of User class
